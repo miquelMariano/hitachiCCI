@@ -1,7 +1,7 @@
 Role Name
 =========
 
-This role installs & configure Hitachi RAID Manager (CCI) on CentOS7
+This role install & configure Hitachi RAID Manager (CCI) on CentOS7
 
 Requirements
 ------------

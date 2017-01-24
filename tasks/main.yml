@@ -1,0 +1,9 @@
+---
+# tasks file for hitachiCCI
+#
+
+- include: install.yml
+  tags: install
+  when: install | default(False)
+
+

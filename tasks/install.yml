@@ -1,0 +1,43 @@
+---
+
+- name: Ensure directory /tmp/cci are exists
+  file:
+    path: /tmp/cci
+    state: directory
+    mode: 0755
+
+- name: Install dependences
+  yum:
+    name: "{{ item }}"
+    state: present #latest
+  with_items:
+      - glibc.i686
+  when: ansible_os_family == 'RedHat'
+
+- name: Copy install files
+  copy:
+    src: LINUX
+    dest: /tmp/cci
+
+- copy: 
+    src: RMinstsh
+    dest: /tmp/cci
+    mode: a+x
+
+- name: Install CCI
+  shell: cpio -idmu < /tmp/cci/LINUX/RMHORC
+  args:
+    chdir: /home
+
+- name: Delete /tmp/cci directory
+  file:
+   path: /tmp/cci
+   state: absent
+
+- name: Copy horcm config files
+  copy: 
+    src: "{{ item }}"
+    dest: /etc/
+  with_items:
+    - horcm300.conf
+    - horcm301.conf

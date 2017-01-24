@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  author: '@miquelMariano'
+  description: Hitachi RAID Manager CCI installer
+  company: 'Ncora Information Technology S.L.'
+  license: license (GPLv2, CC-BY, etc)
+  min_ansible_version: 2.2
+  galaxy_tags:
+    - hitachi
+    - raid
+    - CCI
+    - miquelMariano
+  platforms:
+  - name: GenericLinux
+    versions:
+    - any
+
+dependencies: []
+  
+
+
+

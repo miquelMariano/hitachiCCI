@@ -31,12 +31,12 @@
 - name: Install CCI
   shell: horcminstall.sh
   args:
-    chdir: /HORCM    
+    chdir: /HORCM/    
 
-- name: Delete /tmp/cci directory
-  file:
-   path: /tmp/cci
-   state: absent
+#- name: Delete /tmp/cci directory
+#  file:
+#   path: /tmp/cci
+#   state: absent
 
 - name: Copy horcm config files
   copy: 

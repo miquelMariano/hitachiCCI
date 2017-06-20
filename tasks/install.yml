@@ -27,7 +27,7 @@
 - name: Install CCI
   shell: cpio -idmu < /tmp/cci/LINUX/RMHORC
   args:
-    chdir: /home
+    chdir: /
 
 - name: Delete /tmp/cci directory
   file:

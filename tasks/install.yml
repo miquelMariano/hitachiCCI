@@ -24,10 +24,14 @@
     dest: /tmp/cci
     mode: a+x
 
-- name: Install CCI
-  shell: cpio -idmu < /tmp/cci/LINUX/RMHORC
+- shell: cpio -idmu < /tmp/cci/LINUX/RMHORC
   args:
     chdir: /
+
+- name: Install CCI
+  shell: horcminstall.sh
+  args:
+    chdir: /HORCM    
 
 - name: Delete /tmp/cci directory
   file:

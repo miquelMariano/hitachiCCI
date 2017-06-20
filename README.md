@@ -46,12 +46,23 @@ No dependencies
 Example Playbook
 ----------------
 
+```yaml
+- hosts: all
+  user: root
+  tasks:
+     - name: Ensure that role are up to date
+       command: ansible-galaxy install --force {{ item }}
+       with_items:
+          - miquelMariano.hitachiCCI
+       when:
+          - update_mode | default(False)
+       tags: update
+       ignore_errors: yes
 
-```
-		- hosts: all
-		  user: root
-		  roles:
-		  - role: hitachiCCI
+- hosts: all
+  user: root
+  roles:
+    - role: hitachiCCI
 ```
 
 Usage

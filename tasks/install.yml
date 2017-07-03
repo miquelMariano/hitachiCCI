@@ -19,7 +19,8 @@
     src: LINUX
     dest: /tmp/cci
 
-- copy: 
+- name: Copy install files
+  copy: 
     src: RMinstsh
     dest: /tmp/cci
     mode: a+x
@@ -33,10 +34,10 @@
   args:
     chdir: /HORCM/    
 
-#- name: Delete /tmp/cci directory
-#  file:
-#   path: /tmp/cci
-#   state: absent
+- name: Delete /tmp/cci directory
+  file:
+   path: /tmp/cci
+   state: absent
 
 - name: Copy horcm config files
   copy: 

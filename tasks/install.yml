@@ -46,3 +46,5 @@
   with_items:
     - horcm300.conf
     - horcm301.conf
+    - horcm500.conf
+    - horcm501.conf

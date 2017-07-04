@@ -47,7 +47,7 @@ Example Playbook
 ----------------
 
 ```yaml
-- hosts: all
+- hosts: ansible
   user: root
   tasks:
      - name: Ensure that role are up to date
@@ -59,7 +59,7 @@ Example Playbook
        tags: update
        ignore_errors: yes
 
-- hosts: all
+- hosts: "{{ servers }}"
   user: root
   roles:
     - role: hitachiCCI

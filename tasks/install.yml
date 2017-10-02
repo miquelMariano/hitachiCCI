@@ -39,8 +39,18 @@
    path: /tmp/cci
    state: absent
 
+#- name: Copy horcm config files
+#  copy: 
+#    src: "{{ item }}"
+#    dest: /etc/
+#  with_items:
+#    - horcm300.conf
+#    - horcm301.conf
+#    - horcm500.conf
+#    - horcm501.conf
+
 - name: Copy horcm config files
-  copy: 
+  template: 
     src: "{{ item }}"
     dest: /etc/
   with_items:
@@ -49,5 +59,5 @@
     - horcm500.conf
     - horcm501.conf
 
-- debug:
-    msg: "It's necessary modify S/N of VSP Gx00 on horcm.conf filesº"
+#- debug:
+#    msg: "It's necessary modify S/N of VSP Gx00 on horcm.conf filesº"

@@ -54,10 +54,10 @@
     src: "{{ item }}"
     dest: /etc/
   with_items:
-    - horcm300.conf
-    - horcm301.conf
-    - horcm500.conf
-    - horcm501.conf
+    - horcm300.conf.j2
+    - horcm301.conf.j2
+    - horcm500.conf.j2
+    - horcm501.conf.j2
 
 #- debug:
 #    msg: "It's necessary modify S/N of VSP Gx00 on horcm.conf files"

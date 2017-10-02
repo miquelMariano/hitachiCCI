@@ -60,4 +60,4 @@
     - horcm501.conf
 
 #- debug:
-#    msg: "It's necessary modify S/N of VSP Gx00 on horcm.conf filesº"
+#    msg: "It's necessary modify S/N of VSP Gx00 on horcm.conf files"

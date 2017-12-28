@@ -62,7 +62,7 @@ Example Playbook
 - hosts: "{{ servers }}"
   user: root
   roles:
-    - role: hitachiCCI
+    - role: miquelMariano.hitachiCCI
 ```
 
 Usage

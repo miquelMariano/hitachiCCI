@@ -1,0 +1,239 @@
+@(#) RAID Manager                    Ver 01-46-03/02
+@(#) RAID Manager for IRIX           Ver 01-34-03/04
+@(#) RAID Manager for OpenVMS        Ver 01-30-03/03
+@(#) RAID Manager for DYNIX          Ver 01-19-03/04
+******************  Welcome to RAID Manager Ver 01-46-03/02  *******************
+*                                                                              *
+*          Software Attached Documents (c) 1997-2018,Hitachi,LTD.              *
+*                                                                              *
+*                                                                              *
+*                                                  Hitachi,LTD.                *
+*                                                  IT Platform Division Group, *
+********************************************************************************
+[NOTE]:
+  When you uses the following software for backup etc,please install
+  RAID Manager/LIB of '../RL' directory under on the CD.
+  - Enterprise SnapShot software which is provided by BMC.
+  - RAID management software which is provided by HP or other ISV.
+
+1.Introduction
+  This attached document is describing as for the supported contents by the 
+  following program products.
+  - RAID Manager for Solaris
+  - RAID Manager for Solaris/x86
+  - RAID Manager for HP-UX
+  - RAID Manager for AIX
+  - RAID Manager for WindowsNT
+  - RAID Manager for WindowsNT/x64
+  - RAID Manager for Linux
+  - RAID Manager for Linux/IA64
+  - RAID Manager for Linux/x64
+  - RAID Manager for Tru64 UNIX (Digital UNIX)
+  - RAID Manager for DYNIX
+  - RAID Manager for IRIX
+  - RAID Manager for OpenVMS
+  - RAID Manager for OpenVMS/IA
+  - RAID Manager for zLinux
+  
+2.Prerequisite operating system and Applying machine
+ (1) Operating System
+    Check latest manuals for supported OS/version information.
+
+ (2) Microcode for the RAID 
+   - RAID300: 52-47-XX or higher
+   - RAID400: 01-16-00 or higher
+   - RAID450: 21-10-00 or higher
+   - RAID500: 50-09-35 or higher
+   - RAID600: 60-01-30 or higher 
+   - RAID700: 70-01-00 or higher 
+   - RAID800: 80-01-00 or higher 
+   - HM700  : 73-01-01 or higher 
+   - HM8x0  : 8x-01-01 or higher 
+   - DF500 for Fibre : 0558/A(05-58-00/00 in use raidqry) or higher
+   - DF500 for SCSI  : 0508/A(05-08-00/00 in use raidqry) or higher
+   - DF600 for Fibre : 0657/A(06-57-00/00 in use raidqry) or higher
+   - DF700 for Fibre : 0710/A(07-10-00/00 in use raidqry) or higher
+   - DF800 for Fibre : 0852/A(08-52-00/00 in use raidqry) or higher
+   - DF850 for Fibre : 0910/A(09-10-00/00 in use raidqry) or higher 
+
+3.Reference program
+  - None
+
+4.Supporting function contents from Ver. 01-45-03/00
+  This release includes the following functions:
+   - Added commands to fix inconsistent state of a server of Hitachi Storage Advisor Embedded.
+
+5.Revision contents from Ver. 01-45-03/00
+  This release includes the following revisions:
+   - Fixed the problem in which the raidcom add lun command for Windows Server x64 failed due to 
+     a segmentation fault in the case when the command was executed with the -device_grp_name option.
+   - Fixed the problem in which the raidcom add lun command did not check authority which the user 
+     who executed the command had for the specified ports when the command was executed with the 
+    -device_grp_name <device group name> option.
+
+6.Restriction subject
+  - None
+
+
+7.Remarks in use
+  - None
+
+8.Software manual list
+  please refer to the following manual for your using this program product.
+  - Manual name      : RAID Manager Basic Specifications
+  - Materials number : K6601877 Rev72 
+  - Publishing years : May.2013
+
+9.Installation on the UNIX System
+  These program products are placed to the following directory under 
+  with "cpio" format.
+  [Example for HP-UX]
+  - RAID Manager/HORC for HP-UX ---> ./program/RM/HP_UX/RMHORC
+                                               ('./' is mounted point)
+  The following procedures are manual installation.
+  Please use 'RMinstsh' & 'RMuninst' script for automatically installation.
+
+9.1 Procedure for New Introduction
+    - Change a current directory to a specification directory.
+      # cd  /'Specification Directory'
+    - Installs to 'Specification Directory' using "cpio" command.
+      # cpio -idmu  <  ./program/RM/HP-UX/RMHORC
+    - Makes symbolic link for /HORCM.
+      # ln -s /'Specification Directory'/HORCM  /HORCM
+    - Executes the RAID Manager installation command.
+      # /HORCM/horcminstall.sh
+
+9.2 Procedure for Version Up
+    Please confirms whether HORCM has performing or not.
+    If HORCM has performing,then stop by using horcmshutdown.sh.
+    - In case of 1 instance configuration of HORCM
+      # horcmshutdown.sh
+    - In case of multiple instances configuration of HORCM
+      # horcmshutdown.sh  0 1 ...
+    Also If HORC commands has performing in the interactive mode,
+    then terminates these commands by using "-q"option.
+     
+ (1)Procedure for Version Up
+    - Change a current directory to a root directory.
+      # cd /
+    - Installs to disk using "cpio" command.
+      # cpio -idmu  <  ./program/RM/HP-UX/RMHORC
+    - Executes the RAID Manager installation command.
+      # /HORCM/horcminstall.sh
+
+9.3 Version confirmation after Installation
+    After new introduction or version-up,please confirms version information
+    (Ver & Rev) by using the following command.  
+    [Display example]
+    # raidqry -h
+    Model   : RAID-Manager/HP-UX 
+    Ver&Rev : 01-46-03/02 
+    Usage   : raidqry [options]
+
+9.4 Uninstallation Procedure
+    Deletion of a program product does in following procedure.
+    Please refer to section 9.2 for confirming whether HORCM has performing.
+     
+    - Executes an uninstallation command.
+      # /HORCM/horcmuninstall.sh
+    - Change a current directory to a root directory.
+      # cd  /
+    - Deletes symbolic link for /HORCM.
+      /HORCM is symbolical linked to /'Installed directory'/HORCM.
+      # rm  /HORCM
+    - Deletes a program product by using "rm" command.
+      # rm -rf /'Installed directory'/HORCM
+
+10.Installation on the WindowsNT System
+   These program product are placed to the following directory.
+   - RAID Manager/HORC for WindowsNT ---> ./program/RM/WIN_NT/RMHORC
+                                                     ('./' is mounted point)
+   If network(TCP/IP) has no establishment then installs a network of WindowsNT
+   attachment,and adds TCP/IP protocol,too.
+
+10.1 Procedure for New Introduction
+     - Executes Setup.exe of under ./program/RM/WIN_NT/RMHORC directory.
+
+10.2 Procedure for Version Up
+     Please confirms whether HORCM has performing or not.
+     If HORCM has performing,then stop by using horcmshutdown.exe.
+     - In case of 1 instance configuration of HORCM
+       C:\HORCM\etc>  horcmshutdown
+     - In case of multiple instances configuration of HORCM
+       C:\HORCM\etc>  horcmshutdown 0 1 ...
+     Also If HORC commands has performing in the interactive mode,
+     then terminates these commands by using "-q"option.
+     
+ (1)Procedure for Version Up
+    - Delete the installed RAID Manager by using "Addition and deletion 
+      of application" of the control panel.
+    - Executes Setup.exe of under ./program/RM/WIN_NT/RMHORC directory.
+
+10.3 Version confirmation after Installation
+     After new introduction or version-up,please confirms version information
+     (Ver & Rev) by using the following command.  
+     
+     [Display example]
+     C:\HORCM\etc> raidqry -h
+     Model   : RAID-Manager/WindowsNT 
+     Ver&Rev : 01-46-03/02 
+     Usage   : raidqry [options]
+
+10.4 Uninstallation Procedure
+     Deletion of a program product does in following procedure.
+     Please refer to section 10.2 for confirming whether HORCM has performing.
+     
+     - Delete the installed RAID Manager by using "Addition and deletion 
+       of application" of the control panel.
+
+11.Installation for the OpenVMS System
+   RAID Manager requires to be defined three logical names shown below
+   for RAID Manager in LOGIN.COM.
+   - $ DEFINE/TRANSLATION=(CONCEALED,TERMINAL) SYS$POSIX_ROOT "Device:[directory]"
+   - $ DEFINE DCL$PATH SYS$POSIX_ROOT:[horcm.usr.bin],SYS$POSIX_ROOT:[horcm.etc]
+   - $ DEFINE/TABLE=LNM$PROCESS_DIRECTORY LNM$TEMPORARY_MAILBOX LNM$GROUP
+   - $ DEFINE DECC$ARGV_PARSE_STYLE ENABLE
+   - $ SET PROCESS/PARSE_STYLE=EXTENDED
+     [Note]  Device:[directory] where is defined as SYS$POSIX_ROOT
+
+   These program product are placed as the following PCSI file.
+   - Device:[PROGRAM.RM.OVMS]HITACHI-ARMVMS-RM-V0130-3-1.PCSI
+   - Device:[PROGRAM.RM.OVMS]HITACHI-I64VMS-RM-V0146-2-1.PCSI
+                                           ('Device' is the mounted CD )
+   If network(TCP/IP) has no establishment then installs TCP/IP.
+
+11.1 Procedure for New Introduction
+     $ PRODUCT INSTALL RM /source=Device:[PROGRAM.RM.OVMS]/LOG -
+     _$ /destination=SYS$POSIX_ROOT:[000000]
+                                           ('Device' is the mounted CD )
+
+11.2 Procedure for Version Up
+ (1) Please confirms whether HORCM has performing or not.
+     If HORCM has performing,then stop by using horcmshutdown.exe.
+     - In case of 1 instance configuration of HORCM
+       $ horcmshutdown
+     - In case of multiple instances configuration of HORCM
+       $ horcmshutdown 0 1 ...
+     Also If HORC commands has performing in the interactive mode,
+     then terminates these commands by using "-q"option.
+     
+ (2) Procedure for Version Up
+     $ PRODUCT INSTALL RM /source=Device:[PROGRAM.RM.OVMS]/LOG
+                                           ('Device' is the mounted CD )
+
+11.3 Version confirmation after Installation
+     After new introduction or version-up,please confirms version information
+     (Ver & Rev) by using the following command.  
+     
+     [Display example]
+     $ raidqry -h
+     Model   : RAID-Manager/OpenVMS/IA
+     Ver&Rev : 01-46-03/02 
+     Usage   : raidqry [options]
+
+11.4 Uninstallation Procedure
+     Deletes the installed RAID Manager by using the following command.
+     Please refer to section 11.2 for confirming whether HORCM has performing.
+     
+     $ PRODUCT REMOVE RM /LOG
+   - Fixed the problem where the pairresync -swaps(p) command for pairs in GAD CTG failed.

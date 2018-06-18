@@ -1,6 +1,7 @@
 ---
 # vars file for hitachiCCI
 
+current_version: 01-46-03
 
-SN_VSP1: 111111
-SN_VSP2: 222222
+SN_VSP1: 444444
+SN_VSP2: 455555

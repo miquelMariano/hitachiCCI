@@ -16,12 +16,12 @@
 
 - name: Copy install files
   copy:
-    src: LINUX
+    src: "{{ current_version }}/LINUX"
     dest: /tmp/cci
 
 - name: Copy install files
   copy: 
-    src: RMinstsh
+    src: "{{ current_version }}/RMinstsh"
     dest: /tmp/cci
     mode: a+x
 
@@ -54,11 +54,8 @@
     src: "{{ item }}"
     dest: /etc/
   with_items:
-    - horcm300.conf
-    - horcm301.conf
-    - horcm500.conf
-    - horcm501.conf
-    - horcm63.conf
+    - horcm100.conf
+    - horcm200.conf
 
 #- debug:
 #    msg: "It's necessary modify S/N of VSP Gx00 on horcm.conf files"

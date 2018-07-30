@@ -47,6 +47,8 @@ Example Playbook
 ----------------
 
 ```yaml
+##hitachiCCI.yml
+
 - hosts: ansible
   user: root
   tasks:
@@ -68,7 +70,7 @@ Example Playbook
 Usage
 -------
 
-`ansible-playbook playbooks/cci.yml -i hosts -l andromeda --extra-vars "install=true update_mode=true" --tags=install`
+`ansible-playbook playbooks/hitachiCCI.yml -i inventory/servers -e "servers=server1 install=true update_mode=true" --tags=install`
 
 
 License

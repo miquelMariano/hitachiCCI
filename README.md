@@ -65,7 +65,7 @@ Example Playbook
      - name: Ensure that role are up to date
        command: ansible-galaxy install --force {{ item }}
        with_items:
-          - miquelMariano.hitachiCCI
+          - miquelmariano.hitachicci
        when:
           - update_mode | default(False)
        tags: update

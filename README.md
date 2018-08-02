@@ -3,6 +3,11 @@ Role Name
 
 This role install & configure Hitachi RAID Manager (CCI) on CentOS7
 
+Install from Ansible Galaxy
+------------------------------------
+
+`ansible-galaxy install miquelmariano.hitachicci`
+
 Changelog
 ------------
 
@@ -69,7 +74,7 @@ Example Playbook
 - hosts: "{{ servers }}"
   user: root
   roles:
-    - role: miquelMariano.hitachiCCI
+    - role: miquelmariano.hitachicci
 ```
 
 Usage

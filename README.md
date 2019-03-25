@@ -21,7 +21,7 @@ No requirements
 Role Variables
 --------------
 
-No defined variables but is necessary edit your horcmXXX.conf placed on files dir.
+No defined variables but is necessary edit your horcmXXX.conf placed on templates dir.
 
 Example:
 

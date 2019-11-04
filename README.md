@@ -12,7 +12,6 @@ Changelog
 ------------
 
 29.07.2018 | Add new version of hitachi CCI
-
 04.11.2019 | Add new version of hitachi CCI (01-53-03)
 
 
